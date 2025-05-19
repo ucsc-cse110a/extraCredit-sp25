@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSE110A - Grammar Sets Calculator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>CSE110A - Grammar Sets Calculator</h1>
+        
+        <div class="input-section">
+            <textarea id="grammarInput" placeholder="Enter your grammar here..."></textarea>
+        </div>
+
+        <div class="buttons">
+            <button id="computeFirst">Compute FIRST Sets</button>
+            <button id="computeFollow">Compute FOLLOW Sets</button>
+            <button id="computeFirstPlus">Compute FIRST+ Sets</button>
+        </div>
+
+        <div class="results">
+            <div class="result-section">
+                <h2>Results</h2>
+                <pre id="resultOutput"></pre>
+            </div>
+        </div>
+    </div>
+
+    <script src="grammarConfig.js"></script>
+    <script src="firstSets.js"></script>
+    <script src="followSets.js"></script>
+    <script src="firstPlusSets.js"></script>
+    <script>
+        // Add event listeners for the buttons
+        document.getElementById('computeFirst').addEventListener('click', () => {
+            const grammarText = document.getElementById('grammarInput').value;
+            window.computeFirstSets(grammarText);
+        });
+
+        document.getElementById('computeFollow').addEventListener('click', () => {
+            const grammarText = document.getElementById('grammarInput').value;
+            window.computeFollowSets(grammarText);
+        });
+
+        document.getElementById('computeFirstPlus').addEventListener('click', () => {
+            const grammarText = document.getElementById('grammarInput').value;
+            window.computeFirstPlusSets(grammarText);
+        });
+    </script>
+</body>
+</html>
